@@ -1,11 +1,13 @@
 const readline = require("readline-sync");
 
+// An array representing the product category.
 const productCategory = [
 	{ id: 1, category: "Food Items" },
 	{ id: 2, category: "Drinks" },
 	{ id: 3, category: "Books" },
 ];
 
+// An array representing the available food items.
 const foodItems = [
 	{ id: 1, item: "Bread", price: 1000 },
 	{ id: 2, item: "Butter", price: 700 },
@@ -13,6 +15,7 @@ const foodItems = [
 	{ id: 4, item: "Coffee", price: 1000 },
 ];
 
+// An array representing the available drinks.
 const drinks = [
 	{ id: 1, item: "Coke", price: 200 },
 	{ id: 2, item: "Fanta", price: 200 },
@@ -20,15 +23,21 @@ const drinks = [
 	{ id: 4, item: "Ribena", price: 1200 },
 ];
 
+// An array representing the available books
 const books = [
 	{ id: 1, item: "The Pragmatic Programmer by Dave Thomas", price: 10000 },
 	{ id: 2, item: "Eloquent JavaScript by Marijn Haverbeke", price: 7000 },
 	{ id: 3, item: "HeadFirst Javascript by Eric Freeman", price: 15000 },
 ];
 
-// Sample cart data
+// To store selected product items in cart
 let cart = [];
 
+/**
+ * Displays the items from a given product category
+ * @param {Array} category - An array representing the product category.
+ * 							Each element has the 'id', 'item', and 'price' properties.
+ */
 function displayProductItems(category) {
 	console.log("\nAvailable Items:");
 	category.forEach((product) => {
@@ -38,6 +47,9 @@ function displayProductItems(category) {
 	});
 }
 
+/**
+ * Displays the available product categories
+ */
 function displayProductCategory() {
 	console.log("Available Product Categories:");
 	productCategory.forEach((product) => {
@@ -45,6 +57,9 @@ function displayProductCategory() {
 	});
 }
 
+/**
+ * Displays and prompts the user to select a category of product
+ */
 function selectProductCategory() {
 	console.log("\nSelect a product category\n");
 	displayProductCategory();
@@ -65,6 +80,12 @@ function selectProductCategory() {
 	}
 }
 
+/**
+ * Adds a product item to the cart
+ * @param {Array} category - an array representing the product category.
+ * @param {Number} productId - a numeric identifier for a product category
+ * @param {Number} quantity - the quantity of product items chosen by the user
+ */
 function addToCart(category, productId, quantity) {
 	let selectedProduct;
 
@@ -87,6 +108,9 @@ function addToCart(category, productId, quantity) {
 	}
 }
 
+/**
+ * Display the product items in the cart
+ */
 function displayCart() {
 	console.log("Shopping Cart:");
 	cart.forEach((item) => {
@@ -94,6 +118,9 @@ function displayCart() {
 	});
 }
 
+/**
+ * Computes the total price of items bought
+ */
 function checkout() {
 	let total = 0;
 	cart.forEach((item) => {
@@ -104,6 +131,10 @@ function checkout() {
 	cart = [];
 }
 
+/**
+ * Displays several options for the user to navigate the application
+ * and promps the user for inputs
+ */
 function startShopping() {
 	while (true) {
 		console.log("\nWelcome to Bright Stores!");
@@ -168,5 +199,5 @@ function startShopping() {
 	}
 }
 
-// Start the e-commerce application
+// Starts the e-commerce application
 startShopping();
