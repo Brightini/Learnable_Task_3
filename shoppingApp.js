@@ -99,7 +99,7 @@ function checkout() {
 	cart.forEach((item) => {
 		total += item.product.price * item.quantity;
 	});
-	console.log(`Total: $${total.toFixed(2)}`);
+	console.log(`Total: N${total.toFixed(2)}`);
 	console.log("Thank you for shopping with us!");
 	cart = [];
 }
